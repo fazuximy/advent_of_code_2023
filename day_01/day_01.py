@@ -13,6 +13,8 @@ import regex
 import re
 import pandas as pd
 
+from utils.utils import import_txt_as_lines
+
 
 ### PART 1
 
@@ -51,12 +53,9 @@ working_directory = os.getcwd()
 
 data_filename = "input.xscore"
 
-input_file_directory = os.path.join(working_directory,"data",data_filename)
-
-with open(input_file_directory, 'r') as file:
-    calibration_document = file.read()
+input_file_directory = os.path.join(working_directory,"day_01","data",data_filename)
     
-calibration_lines = calibration_document.splitlines()
+calibration_lines = import_txt_as_lines(input_file_directory)
 
 calibration_numbers = []
 for calibration_line in calibration_lines:
