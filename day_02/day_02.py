@@ -142,7 +142,7 @@ for game_line in game_lines:
         
 possible_game_numbers = [game.game_number for game in games if game.possible]
     
-sum(possible_game_numbers)
+print("The sum of possible game ids is: {}".format(sum(possible_game_numbers)))
     
 
 
@@ -172,5 +172,5 @@ For each game, find the minimum set of cubes that must have been present. What i
 
 min_colors_multiplied = [np.prod([game.max_blue,game.max_red,game.max_green]) for game in games]
 
-sum(min_colors_multiplied)
+print("The product of the fewest number of cubes for all the games is: {}".format(sum(min_colors_multiplied)))
 
