@@ -83,7 +83,7 @@ input_file_directory = os.path.join(working_directory,"data",data_filename)
 
 card_lines = import_txt_as_lines(input_file_directory)
 
-
+"""
 test_data = "Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53\n\
 Card 2: 13 32 20 16 61 | 61 30 68 82 17 32 24 19\n\
 Card 3:  1 21 53 59 44 | 69 82 63 72 16 21 14  1\n\
@@ -92,7 +92,7 @@ Card 5: 87 83 26 28 32 | 88 30 70 12 93 22 82 36\n\
 Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11"
 
 card_lines = test_data.splitlines()
-
+"""
 
 card_data_objects = []
 for card_line in card_lines:
@@ -115,7 +115,7 @@ for card_line in card_lines:
 
 card_points = [CardData.points for CardData in card_data_objects]
 
-print("".format(sum(card_points)))
+print("The total number of points is: {}".format(sum(card_points)))
 
 
 
@@ -160,9 +160,6 @@ for CardData in card_data_objects:
         card_start = CardData.card_number+1
         card_end = card_start+len(CardData.matching_winning_numbers)
         
-        if card_end > len(card_data_objects):
-            card_end = len(card_data_objects)
-        
         card_results.append(list(range(card_start,card_end)))
         
     else:
@@ -200,5 +197,6 @@ def recursive_scratchcards(current_cards_dict, card_result_dict, total_cards_dic
 total_number_of_cards_dict = recursive_scratchcards(new_cards_dict, card_result_dict,total_cards_dict)
 
     
-print(sum(total_number_of_cards_dict.values()))
+print("The total number of scratchcards is: {}".format(sum(total_number_of_cards_dict.values())))
 
+    
