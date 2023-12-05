@@ -15,3 +15,11 @@ def import_txt_as_lines(input_file_directory:str) -> list[str]:
     return input_file_lines
     
     
+def import_txt_as_chunks(input_file_directory:str) -> list[str]:
+
+    with open(input_file_directory, 'r') as file:
+        input_file = file.read()
+        
+    input_file_lines = input_file.split("\n\n")
+    
+    return input_file_lines
