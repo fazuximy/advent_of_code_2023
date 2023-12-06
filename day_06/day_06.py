@@ -69,7 +69,7 @@ distances = re.findall("\d+",record_lines[1])
 
 # We can describe the problem as: distance = wind_up_time * (time - wind_up_time), 0 = - wind_up_time**2 + time * wind_up_time - distance
 
-def get_polynomial_coefficients(time,distance):
+def get_polynomial_coefficients(time:str,distance:str) -> (int,int,int):
     
     a = -1
     b = int(time)
@@ -78,7 +78,7 @@ def get_polynomial_coefficients(time,distance):
     return a,b,c
 
 
-def quadratic_equation(a:int,b:int,c:int) -> list[int]:
+def quadratic_equation(a:int,b:int,c:int) -> (int,int):
     
     d = b**2  - 4 * a * c
     
@@ -92,7 +92,7 @@ def quadratic_equation(a:int,b:int,c:int) -> list[int]:
     return x1,x2
     
 
-def get_number_of_ways_to_beat_race(x1,x2):
+def get_number_of_ways_to_beat_race(x1:int,x2:int) -> int:
     
     first_point = int(np.ceil(x1))
     last_point = int(np.floor(x2))
@@ -145,6 +145,4 @@ x1,x2 = quadratic_equation(a, b, c)
 
 new_ways_to_win_the_race = get_number_of_ways_to_beat_race(x1,x2)
 
-print(new_ways_to_win_the_race)
-
-# too low: 1660968
+print("The number of ways to win the real race is: {}".format(new_ways_to_win_the_race))
